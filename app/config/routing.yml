@@ -1,3 +1,11 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+panda_core:
+    resource: "@PandaCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+panda_user:
+    resource: "@PandaUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+panda_cms:
+    resource: "@PandaCmsBundle/Resources/config/routing.yml"
+    prefix:   /

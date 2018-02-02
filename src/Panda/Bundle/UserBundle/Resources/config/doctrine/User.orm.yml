@@ -1,0 +1,14 @@
+Panda\Bundle\UserBundle\Model\User2:
+    type: entity
+    table: users
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        avatar:
+            type: string
+        postCount:
+            type: decimal
+        gender:
+            type: smallint
