@@ -1,0 +1,28 @@
+Panda\Bundle\CmsBundle\Model\Post:
+    type: entity
+    table: posts
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        title:
+            type: string
+
+        body:
+            type: text
+
+        enabled:
+            type: boolean
+            nullable: true
+            options:
+               default: true
+
+        viewCount:
+            type: integer
+            nullable: true
+            options:
+                default: 0
+
+        commentCount:
+            type: smallint

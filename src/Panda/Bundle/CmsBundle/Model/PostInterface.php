@@ -11,11 +11,54 @@
 
 namespace Panda\Bundle\CmsBundle\Model;
 
-interface PostInterface
+use Panda\Bundle\CoreBundle\Model\CommentableInterface;
+use Panda\Bundle\CoreBundle\Model\CommentInterface;
+use Panda\Bundle\CoreBundle\Model\ContentInterface;
+use Panda\Bundle\CoreBundle\Model\DateTimeInterface;
+use Panda\Bundle\CoreBundle\Model\EnabledInterface;
+use Panda\Bundle\CoreBundle\Model\IdentifiableInterface;
+use Panda\Bundle\CoreBundle\Model\TagsAwareInterface;
+use Panda\Bundle\UserBundle\Model\UserAwareInterface;
+use Panda\Bundle\UserBundle\Model\UserInterface;
+
+interface PostInterface extends
+    IdentifiableInterface,
+    ContentInterface,
+    UserAwareInterface,
+    TagsAwareInterface,
+    CommentableInterface,
+    EnabledInterface,
+    DateTimeInterface
 {
-    public function getTitle();
+    /**
+     * 获取标题
+     * @return string
+     */
+    public function getTitle(): string ;
 
-    public function getBody();
+    /**
+     * 获取阅读数量
+     * @return int
+     */
+    public function getViewCount(): int;
 
+    /**
+     * 设置阅读数量
+     * @param int $count
+     * @return self
+     */
+    public function setViewCount(int $count);
+
+    /**
+     * 增加阅读数量
+     * @param int $count
+     * @return self
+     */
+    public function addViewCount(int $count = 1);
+
+    /**
+     * 获取作者
+     * @return UserInterface
+     */
     public function getAuthor();
 }

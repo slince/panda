@@ -19,20 +19,4 @@ interface ContentInterface
      * @return string
      */
     public function setBody($body);
-
-    /**
-     * 获取原始的body(markdown).
-     *
-     * @return string
-     */
-    public function getOriginalBody();
-
-    /**
-     * 设置original body.
-     *
-     * @param string $body
-     *
-     * @return $this
-     */
-    public function setOriginalBody($body);
 }

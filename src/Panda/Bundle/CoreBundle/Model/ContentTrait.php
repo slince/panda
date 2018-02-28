@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 trait ContentTrait
 {
     /**
-     * @ORM\Column(type="text")
+     * @var string
      */
     protected $body;
 
