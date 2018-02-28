@@ -2,8 +2,15 @@
 
 namespace Panda\Bundle\UserBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Panda\Bundle\CoreBundle\AbstractBundle;
 
-class PandaUserBundle extends Bundle
+class PandaUserBundle extends AbstractBundle
 {
+    /**
+     * {@inheritdoc}
+     */
+    protected function getModelNamespace(): string
+    {
+        return 'Panda\Bundle\UserBundle\Model';
+    }
 }

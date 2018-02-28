@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the slince/pandacms
+ * This file is part of the slince/panda
  *
  * (c) Slince <taosikai@yeah.net>
  *
@@ -18,7 +18,7 @@ use Panda\Bundle\CoreBundle\Model\IdentifiableTrait;
 
 class User extends FosUser implements UserInterface
 {
-    use IdentifiableTrait, DateTimeTrait, EnabledTrait;
+    use IdentifiableTrait, DateTimeTrait;
 
     /**
      * 头像

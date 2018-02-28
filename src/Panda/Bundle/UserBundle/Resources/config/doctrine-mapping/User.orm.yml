@@ -1,4 +1,4 @@
-Panda\Bundle\UserBundle\Model\User2:
+Panda\Bundle\UserBundle\Model\User:
     type: entity
     table: users
     id:
@@ -8,7 +8,12 @@ Panda\Bundle\UserBundle\Model\User2:
     fields:
         avatar:
             type: string
+
         postCount:
-            type: decimal
+            type: integer
+            nullable: true
+            options:
+                default: 0
+
         gender:
             type: smallint

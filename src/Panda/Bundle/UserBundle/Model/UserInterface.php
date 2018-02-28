@@ -16,7 +16,7 @@ use Panda\Bundle\CoreBundle\Model\EnabledInterface;
 use Panda\Bundle\CoreBundle\Model\IdentifiableInterface;
 use FOS\UserBundle\Model\UserInterface as FOSUserInterface;
 
-interface UserInterface extends FOSUserInterface, IdentifiableInterface, DateTimeInterface, EnabledInterface
+interface UserInterface extends FOSUserInterface, IdentifiableInterface, DateTimeInterface
 {
     /**
      * 男性.
