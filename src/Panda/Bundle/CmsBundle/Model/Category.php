@@ -15,9 +15,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Panda\Bundle\CoreBundle\Model\EnabledTrait;
 use Panda\Bundle\CoreBundle\Model\IdentifiableTrait;
 use Panda\Bundle\CoreBundle\Model\MetasAwareTrait;
-use Panda\Bundle\CoreBundle\Model\Taxonomy;
+use Panda\Bundle\CoreBundle\Model\AbstractTaxonomy;
 
-class Category extends Taxonomy implements CategoryInterface
+class Category extends AbstractTaxonomy implements CategoryInterface
 {
     use IdentifiableTrait, EnabledTrait, MetasAwareTrait;
 

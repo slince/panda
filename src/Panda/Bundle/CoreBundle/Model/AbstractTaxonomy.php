@@ -4,7 +4,7 @@ namespace Panda\Bundle\CoreBundle\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 
-abstract class Taxonomy implements TaxonomyInterface
+abstract class AbstractTaxonomy implements TaxonomyInterface
 {
     use DateTimeTrait;
 

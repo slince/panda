@@ -13,6 +13,6 @@ namespace  Panda\Bundle\CoreBundle\Model;
 
 use Panda\Bundle\UserBundle\Model\UserAwareInterface;
 
-interface CommentInterface extends IdentifiableInterface, ContentInterface, DateTimeInterface, UserAwareInterface, EnabledInterface
+interface CommentInterface extends ContentInterface, DateTimeInterface, UserAwareInterface, EnabledInterface
 {
 }

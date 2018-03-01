@@ -6,6 +6,10 @@ use Panda\Bundle\CmsBundle\Model\Category;
 use Panda\Bundle\CmsBundle\Model\CategoryInterface;
 use Panda\Bundle\CmsBundle\Model\CategoryMeta;
 use Panda\Bundle\CmsBundle\Model\CategoryMetaInterface;
+use Panda\Bundle\CmsBundle\Model\Comment;
+use Panda\Bundle\CmsBundle\Model\CommentInterface;
+use Panda\Bundle\CmsBundle\Model\CommentMeta;
+use Panda\Bundle\CmsBundle\Model\CommentMetaInterface;
 use Panda\Bundle\CmsBundle\Model\Post;
 use Panda\Bundle\CmsBundle\Model\PostInterface;
 use Panda\Bundle\CmsBundle\Model\PostMeta;
@@ -45,6 +49,8 @@ class PandaCmsExtension extends AbstractExtension implements EntitiesOverridable
             PostInterface::class => Post::class,
             PostMetaInterface::class => PostMeta::class,
             CategoryMetaInterface::class => CategoryMeta::class,
+            CommentInterface::class => Comment::class,
+            CommentMetaInterface::class => CommentMeta::class
         ];
     }
 }

@@ -1,0 +1,24 @@
+Panda\Bundle\CmsBundle\Model\CommentMeta:
+    type: entity
+    table: commentmetas
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        metaKey:
+            type: string
+
+        metaValue:
+            type: text
+
+    manyToOne:
+        comment:
+            targetEntity: Panda\Bundle\CmsBundle\Model\CommentInterface
+            inversedBy: metas
+            joinColumn:
+                name: comment_id
+                referencedColumnName: id
+                nullable: true
+    indexes:
+        - {columns: meta_key}

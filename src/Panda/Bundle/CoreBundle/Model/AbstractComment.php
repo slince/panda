@@ -6,5 +6,5 @@ use Panda\Bundle\UserBundle\Model\UserAwareTrait;
 
 abstract class AbstractComment implements CommentInterface
 {
-    use IdentifiableTrait, ContentTrait, DateTimeTrait, UserAwareTrait, EnabledTrait;
+    use ContentTrait, DateTimeTrait, UserAwareTrait, EnabledTrait;
 }

@@ -8,11 +8,12 @@ Panda\Bundle\CmsBundle\Model\Post:
     fields:
         title:
             type: string
+        type:
+            type: string
         body:
             type: text
         enabled:
             type: boolean
-            nullable: true
             options:
                default: true
         viewCount:
@@ -34,6 +35,7 @@ Panda\Bundle\CmsBundle\Model\Post:
                 name: user_id
                 referencedColumnName: id
                 nullable: true
+
     manyToMany:
         categories:
             targetEntity: Panda\Bundle\CmsBundle\Model\CategoryInterface
@@ -48,4 +50,7 @@ Panda\Bundle\CmsBundle\Model\Post:
     oneToMany:
         metas:
             targetEntity: Panda\Bundle\CmsBundle\Model\PostMetaInterface
+            mappedBy: post
+        comments:
+            targetEntity: Panda\Bundle\CmsBundle\Model\CommentInterface
             mappedBy: post

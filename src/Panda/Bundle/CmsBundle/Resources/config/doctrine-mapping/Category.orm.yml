@@ -8,6 +8,8 @@ Panda\Bundle\CmsBundle\Model\Category:
     fields:
         name:
             type: string
+        type:
+            type: string
         slug:
             type: string
         description:
