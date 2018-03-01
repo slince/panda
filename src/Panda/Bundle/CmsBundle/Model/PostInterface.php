@@ -17,6 +17,7 @@ use Panda\Bundle\CoreBundle\Model\ContentInterface;
 use Panda\Bundle\CoreBundle\Model\DateTimeInterface;
 use Panda\Bundle\CoreBundle\Model\EnabledInterface;
 use Panda\Bundle\CoreBundle\Model\IdentifiableInterface;
+use Panda\Bundle\CoreBundle\Model\MetasAwareInterface;
 use Panda\Bundle\CoreBundle\Model\TagsAwareInterface;
 use Panda\Bundle\UserBundle\Model\UserAwareInterface;
 use Panda\Bundle\UserBundle\Model\UserInterface;
@@ -26,10 +27,18 @@ interface PostInterface extends
     ContentInterface,
     UserAwareInterface,
     TagsAwareInterface,
+    MetasAwareInterface,
     CommentableInterface,
     EnabledInterface,
     DateTimeInterface
 {
+    /**
+     * 获取类型
+     *
+     * @return string
+     */
+    public function getType(): string;
+
     /**
      * 获取标题
      * @return string
@@ -66,5 +75,25 @@ interface PostInterface extends
      * 获取meta
      * @return PostMetaInterface[]
      */
-    public function getMetas();
+    public function getMetas(): array;
+
+    /**
+     * 获取所有分类
+     * @return CategoryInterface[]
+     */
+    public function getCategories(): array;
+
+    /**
+     * 添加分类
+     * @param CategoryInterface $category
+     * @return self
+     */
+    public function addCategory(CategoryInterface $category);
+
+    /**
+     * 移除分类
+     * @param CategoryInterface $category
+     * @return self
+     */
+    public function removeCategory(CategoryInterface $category);
 }

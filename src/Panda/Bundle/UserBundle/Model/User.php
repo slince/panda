@@ -11,14 +11,16 @@
 
 namespace Panda\Bundle\UserBundle\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\User as FosUser;
 use Panda\Bundle\CoreBundle\Model\DateTimeTrait;
-use Panda\Bundle\CoreBundle\Model\EnabledTrait;
 use Panda\Bundle\CoreBundle\Model\IdentifiableTrait;
+use Panda\Bundle\CoreBundle\Model\MetasAwareTrait;
 
 class User extends FosUser implements UserInterface
 {
-    use IdentifiableTrait, DateTimeTrait;
+    use IdentifiableTrait, DateTimeTrait, MetasAwareTrait;
 
     /**
      * 头像
@@ -36,6 +38,20 @@ class User extends FosUser implements UserInterface
      * @var int
      */
     protected $gender;
+
+
+    /**
+     * 元数据
+     * @var UserMetaInterface[]|Collection
+     */
+    protected $metas;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->metas = new ArrayCollection();
+    }
 
     /**
      * @return string

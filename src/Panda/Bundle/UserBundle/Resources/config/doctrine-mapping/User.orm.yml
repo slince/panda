@@ -19,3 +19,8 @@ Panda\Bundle\UserBundle\Model\User:
             type: datetime
         updatedAt:
             type: datetime
+
+    oneToMany:
+        metas:
+            targetEntity: Panda\Bundle\UserBundle\Model\UserMetaInterface
+            mappedBy: user

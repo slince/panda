@@ -4,6 +4,8 @@ namespace Panda\Bundle\CmsBundle\DependencyInjection;
 
 use Panda\Bundle\CmsBundle\Model\Category;
 use Panda\Bundle\CmsBundle\Model\CategoryInterface;
+use Panda\Bundle\CmsBundle\Model\CategoryMeta;
+use Panda\Bundle\CmsBundle\Model\CategoryMetaInterface;
 use Panda\Bundle\CmsBundle\Model\Post;
 use Panda\Bundle\CmsBundle\Model\PostInterface;
 use Panda\Bundle\CmsBundle\Model\PostMeta;
@@ -41,7 +43,8 @@ class PandaCmsExtension extends AbstractExtension implements EntitiesOverridable
         return [
             CategoryInterface::class => Category::class,
             PostInterface::class => Post::class,
-            PostMetaInterface::class => PostMeta::class
+            PostMetaInterface::class => PostMeta::class,
+            CategoryMetaInterface::class => CategoryMeta::class,
         ];
     }
 }

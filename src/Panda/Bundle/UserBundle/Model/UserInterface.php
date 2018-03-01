@@ -15,8 +15,12 @@ use Panda\Bundle\CoreBundle\Model\DateTimeInterface;
 use Panda\Bundle\CoreBundle\Model\EnabledInterface;
 use Panda\Bundle\CoreBundle\Model\IdentifiableInterface;
 use FOS\UserBundle\Model\UserInterface as FOSUserInterface;
+use Panda\Bundle\CoreBundle\Model\MetasAwareInterface;
 
-interface UserInterface extends FOSUserInterface, IdentifiableInterface, DateTimeInterface
+interface UserInterface extends
+    FOSUserInterface,
+    DateTimeInterface,
+    MetasAwareInterface
 {
     /**
      * 男性.
@@ -70,4 +74,10 @@ interface UserInterface extends FOSUserInterface, IdentifiableInterface, DateTim
      * @return UserInterface
      */
     public function setAvatar($avatar);
+
+    /**
+     * 获取meta
+     * @return UserMetaInterface[]
+     */
+    public function getMetas(): array;
 }

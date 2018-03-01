@@ -20,6 +20,7 @@ use Panda\Bundle\CoreBundle\Model\ContentTrait;
 use Panda\Bundle\CoreBundle\Model\DateTimeTrait;
 use Panda\Bundle\CoreBundle\Model\EnabledTrait;
 use Panda\Bundle\CoreBundle\Model\IdentifiableTrait;
+use Panda\Bundle\CoreBundle\Model\MetasAwareTrait;
 use Panda\Bundle\CoreBundle\Model\TagsAwareTrait;
 use Panda\Bundle\UserBundle\Model\UserAwareTrait;
 use Panda\Bundle\UserBundle\Model\UserInterface;
@@ -29,7 +30,19 @@ class Post implements PostInterface
     use IdentifiableTrait, ContentTrait,
         DateTimeTrait, EnabledTrait,
         TagsAwareTrait, UserAwareTrait,
-        CommentableTrait;
+        MetasAwareTrait, CommentableTrait;
+
+    /**
+     * 类型
+     * @var string
+     */
+    const TYPE_ARTICLE = 'article';
+
+    /**
+     * 类型
+     * @var string
+     */
+    protected $type;
 
     /**
      * @var string
@@ -43,19 +56,15 @@ class Post implements PostInterface
     protected $viewCount;
 
     /**
-     * @var CategoryInterface
+     * @var CategoryInterface[]|Collection
      */
-    protected $category;
+    protected $categories;
 
-    /**
-     * 元数据
-     * @var PostMetaInterface[]|Collection
-     */
-    protected $metas;
-
-    public function __construct()
+    public function __construct(?string $type = null)
     {
         $this->metas = new ArrayCollection();
+        $this->categories = new ArrayCollection();
+        $this->type = $type ?? static::TYPE_ARTICLE;
     }
 
 
@@ -73,6 +82,23 @@ class Post implements PostInterface
     public function setTitle($title)
     {
         $this->title = $title;
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setType(string $type)
+    {
+        $this->type = $type;
         return $this;
     }
 
@@ -113,8 +139,26 @@ class Post implements PostInterface
     /**
      * {@inheritdoc}
      */
-    public function getMetas()
+    public function getCategories(): array
     {
-        return $this->metas;
+        return $this->categories;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addCategory(CategoryInterface $category)
+    {
+        $this->categories = $category;
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function removeCategory(CategoryInterface $category)
+    {
+        $this->categories->removeElement($category);
+        return $this;
     }
 }

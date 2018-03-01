@@ -15,16 +15,37 @@ namespace Panda\Bundle\CmsBundle\Model;
 
 use Panda\Bundle\CoreBundle\Model\EnabledInterface;
 use Panda\Bundle\CoreBundle\Model\IdentifiableInterface;
+use Panda\Bundle\CoreBundle\Model\MetasAwareInterface;
 use Panda\Bundle\CoreBundle\Model\TaxonomyInterface;
 
-interface CategoryInterface extends IdentifiableInterface, TaxonomyInterface, EnabledInterface
+interface CategoryInterface extends IdentifiableInterface, TaxonomyInterface, EnabledInterface, MetasAwareInterface
 {
+    /**
+     * 获取类型
+     *
+     * @return string
+     */
+    public function getType(): string;
+
     /**
      * 添加一篇文章
      * @param PostInterface $post
      * @return self
      */
     public function addPost(PostInterface $post);
+
+    /**
+     * 移除文章
+     * @param PostInterface $post
+     * @return self
+     */
+    public function removePost(PostInterface $post);
+
+    /**
+     * 获取所有文章
+     * @return PostInterface[]
+     */
+    public function getPosts(): array;
 
     /**
      * 获取文章数量

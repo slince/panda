@@ -1,0 +1,24 @@
+Panda\Bundle\CmsBundle\Model\CategoryMeta:
+    type: entity
+    table: categorymetas
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        metaKey:
+            type: string
+
+        metaValue:
+            type: text
+
+    manyToOne:
+        category:
+            targetEntity: Panda\Bundle\CmsBundle\Model\CategoryInterface
+            inversedBy: metas
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+                nullable: true
+    indexes:
+        - {columns: meta_key}

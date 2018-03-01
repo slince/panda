@@ -25,7 +25,12 @@ Panda\Bundle\CmsBundle\Model\Category:
         updatedAt:
             type: datetime
 
-    oneToMany:
+    manyToMany:
         posts:
             targetEntity: Panda\Bundle\CmsBundle\Model\PostInterface
+            mappedBy: category
+
+    oneToMany:
+        metas:
+            targetEntity: Panda\Bundle\CmsBundle\Model\CategoryMetaInterface
             mappedBy: category

@@ -6,6 +6,8 @@ use Panda\Bundle\CoreBundle\DependencyInjection\AbstractExtension;
 use Panda\Bundle\CoreBundle\DependencyInjection\EntitiesOverridableExtensionInterface;
 use Panda\Bundle\UserBundle\Model\User;
 use Panda\Bundle\UserBundle\Model\UserInterface;
+use Panda\Bundle\UserBundle\Model\UserMeta;
+use Panda\Bundle\UserBundle\Model\UserMetaInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\Loader;
@@ -35,7 +37,8 @@ class PandaUserExtension extends AbstractExtension implements EntitiesOverridabl
     public function getEntitiesOverrides(): array
     {
         return [
-            UserInterface::class => User::class
+            UserInterface::class => User::class,
+            UserMetaInterface::class => UserMeta::class
         ];
     }
 }

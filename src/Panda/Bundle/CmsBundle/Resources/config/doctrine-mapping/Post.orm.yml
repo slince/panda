@@ -34,13 +34,17 @@ Panda\Bundle\CmsBundle\Model\Post:
                 name: user_id
                 referencedColumnName: id
                 nullable: true
-        category:
+    manyToMany:
+        categories:
             targetEntity: Panda\Bundle\CmsBundle\Model\CategoryInterface
             inversedBy: posts
-            joinColumn:
-                name: category_id
-                referencedColumnName: id
-                nullable: true
+            joinTable:
+                name: posts_categories
+                joinColumns:
+                    - { name: post_id, referencedColumnName: id}
+                inverseJoinColumns:
+                    - { name: category_id, referencedColumnName: id}
+
     oneToMany:
         metas:
             targetEntity: Panda\Bundle\CmsBundle\Model\PostMetaInterface
