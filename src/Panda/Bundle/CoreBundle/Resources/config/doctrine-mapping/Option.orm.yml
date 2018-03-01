@@ -1,0 +1,19 @@
+Panda\Bundle\CoreBundle\Model\Option:
+    type: entity
+    table: options
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        optionName:
+            type: string
+        optionValue:
+            type: text
+        autoload:
+            type: boolean
+            options:
+                default: false
+
+    indexes:
+        - {columns: option_name}

@@ -14,9 +14,10 @@ declare(strict_types=1);
 namespace Panda\Bundle\CmsBundle\Model;
 
 use Panda\Bundle\CoreBundle\Model\EnabledInterface;
+use Panda\Bundle\CoreBundle\Model\IdentifiableInterface;
 use Panda\Bundle\CoreBundle\Model\TaxonomyInterface;
 
-interface CategoryInterface extends TaxonomyInterface, EnabledInterface
+interface CategoryInterface extends IdentifiableInterface, TaxonomyInterface, EnabledInterface
 {
     /**
      * 添加一篇文章

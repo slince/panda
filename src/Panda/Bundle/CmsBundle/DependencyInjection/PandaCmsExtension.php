@@ -6,6 +6,8 @@ use Panda\Bundle\CmsBundle\Model\Category;
 use Panda\Bundle\CmsBundle\Model\CategoryInterface;
 use Panda\Bundle\CmsBundle\Model\Post;
 use Panda\Bundle\CmsBundle\Model\PostInterface;
+use Panda\Bundle\CmsBundle\Model\PostMeta;
+use Panda\Bundle\CmsBundle\Model\PostMetaInterface;
 use Panda\Bundle\CoreBundle\DependencyInjection\AbstractExtension;
 use Panda\Bundle\CoreBundle\DependencyInjection\EntitiesOverridableExtensionInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -39,6 +41,7 @@ class PandaCmsExtension extends AbstractExtension implements EntitiesOverridable
         return [
             CategoryInterface::class => Category::class,
             PostInterface::class => Post::class,
+            PostMetaInterface::class => PostMeta::class
         ];
     }
 }

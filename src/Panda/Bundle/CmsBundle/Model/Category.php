@@ -12,11 +12,12 @@
 namespace Panda\Bundle\CmsBundle\Model;
 
 use Panda\Bundle\CoreBundle\Model\EnabledTrait;
+use Panda\Bundle\CoreBundle\Model\IdentifiableTrait;
 use Panda\Bundle\CoreBundle\Model\Taxonomy;
 
 class Category extends Taxonomy implements CategoryInterface
 {
-    use EnabledTrait;
+    use IdentifiableTrait, EnabledTrait;
 
     /**
      * post

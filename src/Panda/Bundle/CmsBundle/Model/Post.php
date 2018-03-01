@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Panda\Bundle\CmsBundle\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Panda\Bundle\CoreBundle\Model\CommentableTrait;
 use Panda\Bundle\CoreBundle\Model\ContentTrait;
 use Panda\Bundle\CoreBundle\Model\DateTimeTrait;
@@ -44,6 +46,18 @@ class Post implements PostInterface
      * @var CategoryInterface
      */
     protected $category;
+
+    /**
+     * 元数据
+     * @var PostMetaInterface[]|Collection
+     */
+    protected $metas;
+
+    public function __construct()
+    {
+        $this->metas = new ArrayCollection();
+    }
+
 
     /**
      * {@inheritdoc}
@@ -94,5 +108,13 @@ class Post implements PostInterface
     {
         $this->viewCount += $count;
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMetas()
+    {
+        return $this->metas;
     }
 }

@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 abstract class Taxonomy implements TaxonomyInterface
 {
-    use DateTimeTrait, IdentifiableTrait;
+    use DateTimeTrait;
 
     /**
      * @ORM\Column(type="string", length=100)

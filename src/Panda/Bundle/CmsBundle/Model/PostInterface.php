@@ -61,4 +61,10 @@ interface PostInterface extends
      * @return UserInterface
      */
     public function getAuthor();
+
+    /**
+     * 获取meta
+     * @return PostMetaInterface[]
+     */
+    public function getMetas();
 }

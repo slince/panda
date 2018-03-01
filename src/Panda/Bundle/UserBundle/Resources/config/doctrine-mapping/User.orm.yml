@@ -8,12 +8,14 @@ Panda\Bundle\UserBundle\Model\User:
     fields:
         avatar:
             type: string
-
         postCount:
             type: integer
             nullable: true
             options:
                 default: 0
-
         gender:
             type: smallint
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime

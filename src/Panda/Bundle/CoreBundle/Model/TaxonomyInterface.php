@@ -2,7 +2,7 @@
 
 namespace Panda\Bundle\CoreBundle\Model;
 
-interface TaxonomyInterface extends IdentifiableInterface, DateTimeInterface
+interface TaxonomyInterface extends DateTimeInterface
 {
     /**
      * 设置分类名称.
