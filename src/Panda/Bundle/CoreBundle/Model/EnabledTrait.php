@@ -1,13 +1,22 @@
 <?php
 
-namespace Panda\Bundle\CoreBundle\Model;
+/*
+ * This file is part of the slince/pandacms
+ *
+ * (c) Slince <taosikai@yeah.net>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
-use Doctrine\ORM\Mapping as ORM;
+declare(strict_types=1);
+
+namespace Panda\Bundle\CoreBundle\Model;
 
 trait EnabledTrait
 {
     /**
-     * @ORM\Column(type="boolean")
+     * @var boolean
      */
     protected $enabled = true;
 
@@ -18,7 +27,7 @@ trait EnabledTrait
      *
      * @return $this Self object
      */
-    public function setEnabled($enabled)
+    public function setEnabled(bool $enabled)
     {
         $this->enabled = $enabled;
 
@@ -30,7 +39,7 @@ trait EnabledTrait
      *
      * @return bool is enabled
      */
-    public function isEnabled()
+    public function isEnabled(): bool
     {
         return $this->enabled;
     }

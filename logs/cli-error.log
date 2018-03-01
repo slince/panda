@@ -1,0 +1,9 @@
+2018-01-31 05:32:52 Error: [InvalidArgumentException] Cannot use 'Panda\Application\Shell\ConsoleShell' for command 'console' it is not a subclass of Cake\Console\Shell. in C:\www\labs\panda\vendor\cakephp\cakephp\src\Console\CommandCollection.php on line 65
+Stack Trace:
+#0 C:\www\labs\panda\vendor\cakephp\cakephp\src\Console\CommandCollection.php(85): Cake\Console\CommandCollection->add('console', 'Panda\\Applicati...')
+#1 C:\www\labs\panda\vendor\cakephp\cakephp\src\Http\BaseApplication.php(91): Cake\Console\CommandCollection->addMany(Array)
+#2 C:\www\labs\panda\vendor\cakephp\cakephp\src\Console\CommandRunner.php(120): Cake\Http\BaseApplication->console(Object(Cake\Console\CommandCollection))
+#3 C:\www\labs\panda\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#4 {main}
+
+

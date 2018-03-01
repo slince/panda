@@ -1,0 +1,31 @@
+Panda\Bundle\CmsBundle\Model\Category:
+    type: entity
+    table: categories
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+        slug:
+            type: string
+        description:
+            type: text
+        enabled:
+            type: boolean
+            options:
+               default: true
+        postCount:
+            type: integer
+            options:
+                default: 0
+        createdAt:
+            type: datetime
+        updatedAt:
+            type: datetime
+
+    oneToMany:
+        posts:
+            targetEntity: Panda\Bundle\CmsBundle\Model\PostInterface
+            mappedBy: category

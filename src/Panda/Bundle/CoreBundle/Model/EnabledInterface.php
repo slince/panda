@@ -14,14 +14,14 @@ interface EnabledInterface
      *
      * @return $this Self object
      */
-    public function setEnabled($enabled);
+    public function setEnabled(bool $enabled);
 
     /**
      * Get if entity is enabled.
      *
      * @return bool Enabled
      */
-    public function isEnabled();
+    public function isEnabled(): bool;
 
     /**
      * Disable the entity.

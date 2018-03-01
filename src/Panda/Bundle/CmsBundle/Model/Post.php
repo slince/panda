@@ -41,6 +41,11 @@ class Post implements PostInterface
     protected $viewCount;
 
     /**
+     * @var CategoryInterface
+     */
+    protected $category;
+
+    /**
      * {@inheritdoc}
      */
     public function getTitle(): string

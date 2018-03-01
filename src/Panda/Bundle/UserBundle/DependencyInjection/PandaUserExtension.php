@@ -2,9 +2,12 @@
 
 namespace Panda\Bundle\UserBundle\DependencyInjection;
 
+use Panda\Bundle\CoreBundle\DependencyInjection\AbstractExtension;
+use Panda\Bundle\CoreBundle\DependencyInjection\EntitiesOverridableExtensionInterface;
+use Panda\Bundle\UserBundle\Model\User;
+use Panda\Bundle\UserBundle\Model\UserInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
 /**
@@ -12,7 +15,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * @link http://symfony.com/doc/current/cookbook/bundles/extension.html
  */
-class PandaUserExtension extends Extension
+class PandaUserExtension extends AbstractExtension implements EntitiesOverridableExtensionInterface
 {
     /**
      * {@inheritdoc}
@@ -24,5 +27,15 @@ class PandaUserExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEntitiesOverrides(): array
+    {
+        return [
+            UserInterface::class => User::class
+        ];
     }
 }

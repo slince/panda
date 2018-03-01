@@ -17,7 +17,7 @@ class PandaCmsBundle extends AbstractBundle
     /**
      * {@inheritdoc}
      */
-    protected function getModelNamespace()
+    public function getModelNamespace(): string
     {
         return 'Panda\Bundle\CmsBundle\Model';
     }

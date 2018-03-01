@@ -2,9 +2,14 @@
 
 namespace Panda\Bundle\CmsBundle\DependencyInjection;
 
+use Panda\Bundle\CmsBundle\Model\Category;
+use Panda\Bundle\CmsBundle\Model\CategoryInterface;
+use Panda\Bundle\CmsBundle\Model\Post;
+use Panda\Bundle\CmsBundle\Model\PostInterface;
+use Panda\Bundle\CoreBundle\DependencyInjection\AbstractExtension;
+use Panda\Bundle\CoreBundle\DependencyInjection\EntitiesOverridableExtensionInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
 
 /**
@@ -12,7 +17,7 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * @link http://symfony.com/doc/current/cookbook/bundles/extension.html
  */
-class PandaCmsExtension extends Extension
+class PandaCmsExtension extends AbstractExtension implements EntitiesOverridableExtensionInterface
 {
     /**
      * {@inheritdoc}
@@ -24,5 +29,16 @@ class PandaCmsExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getEntitiesOverrides(): array
+    {
+        return [
+            CategoryInterface::class => Category::class,
+            PostInterface::class => Post::class,
+        ];
     }
 }

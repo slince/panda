@@ -33,14 +33,14 @@ abstract class AbstractBundle extends Bundle
      * 获取实体命名空间
      * @return string
      */
-    abstract protected function getModelNamespace();
+    abstract public function getModelNamespace(): ?string;
 
     /**
      * 获取bundle前缀
      *
      * @return string
      */
-    protected function getBundlePrefix(): string
+    public function getBundlePrefix(): string
     {
         return Container::underscore(substr(strrchr(get_class($this), '\\'), 1, -6));
     }
@@ -53,9 +53,6 @@ abstract class AbstractBundle extends Bundle
         );
     }
 
-    /**
-     * @return string
-     */
     protected function getDoctrineMappingDirectory(): string
     {
         return  'doctrine-mapping';
